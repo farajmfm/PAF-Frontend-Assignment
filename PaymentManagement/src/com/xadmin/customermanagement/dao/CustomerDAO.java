@@ -1,9 +1,17 @@
 package com.xadmin.customermanagement.dao;
 
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import org.apache.tomcat.jni.User;
+
 import java.sql.Connection;
 
 import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 import com.xadmin.customermanagement.model.Customer;
 
 public class CustomerDAO {
@@ -69,7 +77,7 @@ public class CustomerDAO {
 					String amount = rs.getString("amount");
 					String billNo = rs.getString("billNo");
 					String bankName = rs.getString("bankName");
-					user = new User(id, paymentMethod, amount, billNo, bankName);
+					user = new Customer(id, paymentMethod, amount, billNo, bankName);
 				}
 			} catch (SQLException e) {
 				printSQLException(e);
@@ -97,7 +105,7 @@ public class CustomerDAO {
 					String amount = rs.getString("amount");
 					String billNo = rs.getString("billNo");
 					String bankName = rs.getString("bankName");
-					users.add(new User(id, paymentMethod, amount, billNo, bankName));
+					users.add(new Customer(id, paymentMethod, amount, billNo, bankName));
 				}
 			} catch (SQLException e) {
 				printSQLException(e);
