@@ -99,7 +99,7 @@ public class CustomerServlet extends HttpServlet {
 			String BillNo = request.getParameter("billNo");
 			String BankName = request.getParameter("bankName");
 
-			Customer book = new Customer(id, paymentMethod, amount, billNo, bankName);
+			Customer book = new Customer(id, PaymentMethod, Amount, BillNo, BankName);
 			customerDAO.updateUser(book);
 			response.sendRedirect("list");
 		}
